@@ -7,7 +7,7 @@ jobs:
       - uses: actions/github-script@v4
         with:
           script: |
-            console.log('title', context.issue.title);
+            console.log('title', context.issue);
 
             if (!context.issue.title.match('refactor')) return;
 
