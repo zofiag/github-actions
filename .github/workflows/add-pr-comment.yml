@@ -11,5 +11,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 test1!'
+              body: '![Cleanup Gif](https://media.giphy.com/media/mEyjlcnnKADLziMIZS/giphy-downsized.gif)'
             })
