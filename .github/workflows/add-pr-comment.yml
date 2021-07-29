@@ -1,15 +1,20 @@
 name: add-pr-comment
-on: [pull_request]
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened]
 jobs:
   comment:
+    if: ${{ github.event.issue.pull_request && github.event.issue.pull_request.title.includes('refactor') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v4
         with:
           script: |
             github.issues.createComment({
-              issue_number: context.pull_request.number,
+              debug: true,
+              issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 test!'
-            })
+              body: '![Refactor Gif](https://media.giphy.com/media/mEyjlcnnKADLziMIZS/giphy-downsized.gif)'
+            });
