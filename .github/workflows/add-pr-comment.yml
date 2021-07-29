@@ -7,6 +7,8 @@ jobs:
       - uses: actions/github-script@v4
         with:
           script: |
+            console.log('pull_request', context, context.pull_request)
+
             if (!context.pull_request.title.match('refactor')) return;
 
             github.issues.createComment({
