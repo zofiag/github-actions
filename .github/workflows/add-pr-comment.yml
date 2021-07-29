@@ -12,7 +12,7 @@ jobs:
       - uses: actions/github-script@v4
         with:
           script: |
-            console.log('aaaa', github.event.issue.pull_request)
+            console.log('aaaa', github.event)
 
             github.issues.createComment({
               issue_number: context.payload.pull_request.number,
