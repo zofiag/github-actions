@@ -6,7 +6,7 @@ on:
   #   types: [opened]
 jobs:
   comment:
-    if: ${{ github.event.issue.pull_request.title.includes('refactor') }}
+    if: ${{ github.event.issue.pull_request && 'refactor' in github.event.issue.pull_request.title }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v4
