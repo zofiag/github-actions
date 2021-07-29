@@ -7,12 +7,10 @@ jobs:
       - uses: actions/github-script@v4
         with:
           script: |
-            console.log('pull_request', context, context.pull_request)
-
-            if (!context.pull_request.title.match('refactor')) return;
+            if (!context.payload.pull_request.title.match('refactor')) return;
 
             github.issues.createComment({
-              issue_number: context.pull_request.number,
+              issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: '![Cleanup Gif](https://media.giphy.com/media/mEyjlcnnKADLziMIZS/giphy-downsized.gif)'
