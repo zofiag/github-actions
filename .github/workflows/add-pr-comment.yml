@@ -8,7 +8,7 @@ jobs:
         with:
           script: |
             github.issues.createComment({
-              issue_number: context.pull_request.number,
+              issue_number: github.event.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: '👋 test1!'
