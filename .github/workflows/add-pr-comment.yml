@@ -10,8 +10,9 @@ jobs:
             if (!context.payload.pull_request.title.match('refactor')) return;
 
             github.issues.createComment({
+              debug: true,
               issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '![Cleanup Gif](https://media.giphy.com/media/mEyjlcnnKADLziMIZS/giphy-downsized.gif)'
+              body: '![Refactor Gif](https://media.giphy.com/media/mEyjlcnnKADLziMIZS/giphy-downsized.gif)'
             });
