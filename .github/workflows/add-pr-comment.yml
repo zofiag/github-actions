@@ -5,14 +5,13 @@ on:
     types: [opened]
 jobs:
   comment:
-    if: ${{ github.event.issue.pull_request && github.event.issue.pull_request.title.includes('refactor') }}
+    if: ${{ github.event.issue.pull_request?.title.includes('refactor') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v4
         with:
           script: |
             github.issues.createComment({
-              debug: true,
               issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
