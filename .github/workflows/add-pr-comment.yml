@@ -1,8 +1,9 @@
 name: add-pr-comment
 on:
+  [pull_request]
   # workflow_dispatch:
-  pull_request:
-    types: [opened]
+  # pull_request:
+  #   types: [opened]
 jobs:
   comment:
     if: ${{ github.event.issue.pull_request && github.event.issue.pull_request.title.includes('refactor') }}
